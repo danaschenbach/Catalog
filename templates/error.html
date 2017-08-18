@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+		<div class="row banner main">
+			<div class="col-md-1"></div>
+			<div class="col-md-11 padding-none">
+				<h1>What you do???</h1>
+				<h3>You have attempted to activate a function that requires you</h3>
+				<h3>to be logged in. You can do so now or go back to main page.</h3>				
+			</div>
+		</div>
+		<br>
+		<a href="{{url_for('showLogin')}}">Click Here to Log in </a>
+		<br>
+		<a href ="{{url_for('showCategories')}}">Click here for Main page</a>
