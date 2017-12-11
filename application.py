@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, jsonify, url_for, flash
 from sqlalchemy import create_engine, asc, desc
 from sqlalchemy.orm import sessionmaker
-from database_setup import Base, Username, Category, Item
+from database_setup import Base, User, Category, Item
 from flask import session as login_session
 import random
 import string
@@ -72,7 +72,7 @@ def fbconnect():
     user_id = getUserID(login_session['email'])
     if not user_id:
         user_id = createUser(login_session)
-    login_session['username_id'] = user_id
+    login_session['user_id'] = user_id
 
     output = ''
     output += '<h1>Welcome, '
@@ -182,22 +182,22 @@ def gconnect():
 
 # Helpers
 def createUser(login_session):
-    newUser = Username(name=login_session['username'], email=login_session[
+    newUser = User(name=login_session['username'], email=login_session[
                    'email'])
     session.add(newUser)
     session.commit()
-    user = session.query(Username).filter_by(email=login_session['email']).one()
+    user = session.query(User).filter_by(email=login_session['email']).one()
     return user.id
 
 
 def getUserInfo(user_id):
-    user = session.query(Username).filter_by(id=user_id).one()
+    user = session.query(User).filter_by(id=user_id).one()
     return user
 
 
 def getUserID(email):
     try:
-        user = session.query(Username).filter_by(email=email).one()
+        user = session.query(User).filter_by(email=email).one()
         return user.id
     except:
         return None
@@ -262,7 +262,7 @@ def showCategories():
 @app.route('/category/new/', methods=['GET', 'POST'])
 def newCategory():
     if 'username' not in login_session:
-        return redirect('login')
+        return redirect('/login')
     if request.method == 'POST':
         newCategory = Category(name=request.form['name'],
                                user_id=login_session['user_id'])
