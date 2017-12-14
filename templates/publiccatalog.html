@@ -1,5 +1,6 @@
 {% extends "main.html" %}
 {% block content %}
+{% include "header.html" %}
 	<div class="row top-item">
 		<div class="col-md-10"></div>
 		<div class="col-md-2 text-right">
@@ -34,8 +35,8 @@
 		<div class="col-md-10 padding-none"></div>
 		<div class="col-md-1"></div>
 	</div>
-	{% for category in categories %}
-		<a href = "{{url_for('showItem', category_id = category.id)}}">
+	{% for category in categorys %}
+		<a href = "{{url_for('showCategories', category_id = category.id)}}">
 			<div class="row">
 				<div class="col-md-1"></div>
 					<div class="col-md-10 category-list">
