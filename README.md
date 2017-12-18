@@ -11,4 +11,5 @@ third party API for login purposes.
 7th: open browser and goto http://localhost:5000 which will take you to the homepage
 8th: once you login you will be able to create a new category & items( only the creator of category can edit)
 9th: have fun playing with the functions
-All this was made possible with intellectual funding by; Udacity forum, Google, stackoverflow.com, friends and people like you(sorry been watching PBS...lol)
+All this was made possible with intellectual funding by; Udacity forum, Google, stackoverflow.com,
+friends and people like you(sorry been watching PBS...lol)
