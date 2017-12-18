@@ -15,15 +15,6 @@ class User(Base):
     name = Column(String(250), nullable=False)
     email = Column(String(250), nullable=False)
 
-    @property
-    def serialize(self):
-       """Return object data in easily serializeable format"""
-       return {
-           'name'         : self.name,
-           'id'           : self.id,
-           'email'      :self.email
-       }
-    
 class Category(Base):
     __tablename__ = 'category'
    
@@ -36,8 +27,8 @@ class Category(Base):
     def serialize(self):
        """Return object data in easily serializeable format"""
        return {
-           'name'         : self.name,
-           'id'           : self.id,
+           'name' : self.name,
+           'id' : self.id,
        }
  
 class Item(Base):
