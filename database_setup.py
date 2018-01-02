@@ -22,7 +22,8 @@ class Category(Base):
     name = Column(String(250), nullable=False)
     user_id = Column(Integer, ForeignKey('user.id'))
     user = relationship(User)
-
+    item = relationship('Item', cascade='all, delete-orphan')
+    
     @property
     def serialize(self):
        """Return object data in easily serializeable format"""
@@ -51,9 +52,9 @@ class Item(Base):
            'description': self.description,
            'id': self.id,
            'price': self.price,
-           'category': self.category
+           'category': self.category_id
        }
 
-engine = create_engine('sqlite:///catalog.db')
+engine = create_engine('postgresql://Catalog:password@localhost/catalog')
  
 Base.metadata.create_all(engine)
