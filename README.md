@@ -13,3 +13,4 @@ third party API for login purposes.
 9th: have fun playing with the functions
 All this was made possible with intellectual funding by; Udacity forum, Google, stackoverflow.com,
 friends and people like you(sorry been watching PBS...lol)
+A quick link to my profile page which has images of projects as well as more indepth info: https://profiles.udacity.com/p/10123989553
